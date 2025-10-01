@@ -32,12 +32,12 @@ export default function Interns() {
   };
 
   return (
-    <div className="space-y-6 mt-0 md:mt-[90px]">
+    <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Interns</h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-1">Manage and track your intern workforce</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Stagiaires</h2>
+          <p className="text-gray-600 dark:text-gray-300 mt-1">Gérer et suivre vos stagiaires</p>
         </div>
         <button
           onClick={() => setShowInternForm(true)}
@@ -55,7 +55,7 @@ export default function Interns() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 h-4 w-4" />
               <input
                 type="text"
-                placeholder="Search interns..."
+                placeholder="Rechercher des stagiaires..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"

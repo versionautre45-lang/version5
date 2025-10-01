@@ -77,7 +77,7 @@ export default function Settings() {
 
   return (
     <>
-    <div className="space-y-6 mt-0 md:mt-[90px]">
+    <div className="space-y-6">
       {/* Header */}
       <div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Paramètres</h2>

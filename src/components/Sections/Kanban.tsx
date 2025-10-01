@@ -111,7 +111,7 @@ export default function Kanban() {
           <div className="flex items-center space-x-2">
             <Calendar className="h-3 w-3 text-gray-400" />
             <span className="text-xs text-gray-500 dark:text-gray-400">
-              {new Date(task.dueDate).toLocaleDateString()}
+              {new Date(task.dueDate).toLocaleDateString('fr-FR')}
             </span>
           </div>
           
@@ -193,7 +193,7 @@ export default function Kanban() {
   );
 
   return (
-    <div className="space-y-6 mt-0 md:mt-[90px]">
+    <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -253,7 +253,7 @@ export default function Kanban() {
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{selectedProjectData.title}</h3>
               <p className="text-gray-600 dark:text-gray-300 mt-1">
                 {selectedProjectData.assignedInterns.length} stagiaires assignés •
-                Échéance: {new Date(selectedProjectData.dueDate).toLocaleDateString()}
+                Échéance: {new Date(selectedProjectData.dueDate).toLocaleDateString('fr-FR')}
               </p>
             </div>
             <div className="text-right">

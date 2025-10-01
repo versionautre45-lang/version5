@@ -34,58 +34,58 @@ export default function Tasks() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Tasks</h2>
-          <p className="text-gray-600 mt-1">Manage and track task progress</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Tâches</h2>
+          <p className="text-gray-600 dark:text-gray-300 mt-1">Gérer et suivre la progression des tâches</p>
         </div>
         <button 
           onClick={() => alert('Create new task form')}
           className="mt-4 sm:mt-0 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
         >
           <Plus className="h-4 w-4" />
-          <span>New Task</span>
+          <span>Nouvelle Tâche</span>
         </button>
       </div>
 
       {/* Tasks List */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="p-6 border-b border-gray-100">
-          <h3 className="font-semibold text-gray-900">All Tasks</h3>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+        <div className="p-6 border-b border-gray-100 dark:border-gray-700">
+          <h3 className="font-semibold text-gray-900 dark:text-white">Toutes les Tâches</h3>
         </div>
         
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-100 dark:divide-gray-700">
           {mockTasks.map((task) => {
             const assignedIntern = mockInterns.find(intern => intern.id === task.assignedTo);
             const project = mockProjects.find(p => p.id === task.projectId);
             
             return (
-              <div key={task.id} className="p-6 hover:bg-gray-50 transition-colors duration-200">
+              <div key={task.id} className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-4 flex-1">
-                    <div className="bg-blue-100 p-2 rounded-lg">
-                      <CheckSquare className="h-5 w-5 text-blue-600" />
+                    <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg">
+                      <CheckSquare className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-3 mb-2">
-                        <h4 className="font-medium text-gray-900">{task.title}</h4>
+                        <h4 className="font-medium text-gray-900 dark:text-white">{task.title}</h4>
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(task.status)}`}>
                           {task.status.replace('-', ' ')}
                         </span>
                         <div className="flex items-center space-x-1">
                           <AlertCircle className={`h-3 w-3 ${getPriorityColor(task.priority)}`} />
                           <span className={`text-xs font-medium ${getPriorityColor(task.priority)}`}>
-                            {task.priority} priority
+                            Priorité {task.priority === 'high' ? 'haute' : task.priority === 'medium' ? 'moyenne' : 'basse'}
                           </span>
                         </div>
                       </div>
                       
-                      <div className="flex items-center space-x-4 text-sm text-gray-600">
+                      <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-300">
                         {project && (
-                          <span>Project: {project.title}</span>
+                          <span>Projet: {project.title}</span>
                         )}
                         <div className="flex items-center space-x-1">
                           <Calendar className="h-4 w-4" />
-                          <span>Due: {new Date(task.dueDate).toLocaleDateString()}</span>
+                          <span>Échéance: {new Date(task.dueDate).toLocaleDateString('fr-FR')}</span>
                         </div>
                       </div>
                     </div>

@@ -3,6 +3,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Sidebar from './components/Layout/Sidebar';
 import Header from './components/Layout/Header';
 import MobileMenu from './components/Layout/MobileMenu';
+import MobileNavbar from './components/Layout/MobileNavbar';
 import Dashboard from './components/Dashboard/Dashboard';
 import Interns from './components/Sections/Interns';
 import Projects from './components/Sections/Projects';
@@ -46,36 +47,31 @@ function App() {
   return (
     <ThemeProvider>
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800">
-      {/* Mobile Menu */}
-      <MobileMenu 
-        isOpen={isMobileMenuOpen} 
-        onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+      {/* Mobile Menu Button */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       />
-      
-      {/* Sidebar */}
-      <div className={`fixed left-0 top-0 h-full z-30 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
-        <Sidebar
-          activeSection={activeSection}
-          onSectionChange={(section) => {
-            setActiveSection(section);
-            setIsMobileMenuOpen(false);
-          }}
-        />
-      </div>
 
-      {/* Mobile overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+      {/* Mobile Navbar */}
+      <MobileNavbar
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        activeSection={activeSection}
+        onSectionChange={setActiveSection}
+      />
+
+      {/* Desktop Sidebar */}
+      <Sidebar
+        activeSection={activeSection}
+        onSectionChange={setActiveSection}
+      />
 
       {/* Header */}
       <Header />
 
       {/* Main Content */}
-      <main className="pt-20 md:pt-24 px-4 md:px-6 pb-6 md:ml-64">
+      <main className="pt-20 md:pt-24 px-4 md:px-6 pb-6 ml-0 md:ml-64">
         {renderContent()}
       </main>
     </div>

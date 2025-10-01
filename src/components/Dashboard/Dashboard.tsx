@@ -34,28 +34,28 @@ export default function Dashboard() {
       {/* Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard
-          title="Total Interns"
+          title="Total Stagiaires"
           value={mockMetrics.totalInterns}
           icon={Users}
           color="bg-blue-500"
           trend={{ value: 12, isPositive: true }}
         />
         <MetricCard
-          title="Active Projects"
+          title="Projets Actifs"
           value={mockMetrics.activeProjects}
           icon={FolderOpen}
           color="bg-green-500"
           trend={{ value: 8, isPositive: true }}
         />
         <MetricCard
-          title="Completed Tasks"
+          title="Tâches Terminées"
           value={mockMetrics.completedTasks.toLocaleString()}
           icon={CheckSquare}
           color="bg-purple-500"
           trend={{ value: 15, isPositive: true }}
         />
         <MetricCard
-          title="Success Rate"
+          title="Taux de Réussite"
           value={`${mockMetrics.successRate}%`}
           icon={TrendingUp}
           color="bg-orange-500"

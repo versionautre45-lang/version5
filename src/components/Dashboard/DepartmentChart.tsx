@@ -6,8 +6,8 @@ export default function DepartmentChart() {
   return (
     <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-sm border border-orange-200 dark:border-gray-700 p-6">
       <div className="mb-6">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Interns per Department</h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Distribution across different departments</p>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Stagiaires par Département</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Répartition entre les différents départements</p>
       </div>
       
       <div className="h-80">
@@ -38,7 +38,7 @@ export default function DepartmentChart() {
               dataKey="interns"
               fill="#f97316"
               radius={[4, 4, 0, 0]}
-              name="Interns"
+              name="Stagiaires"
             />
           </BarChart>
         </ResponsiveContainer>
