@@ -21,22 +21,22 @@ export default function RecentActivity() {
 
   return (
     <>
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
-          <p className="text-sm text-gray-600 mt-1">Latest updates from your team</p>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Activité Récente</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Dernières mises à jour de votre équipe</p>
         </div>
-        <Clock className="h-5 w-5 text-gray-400" />
+        <Clock className="h-5 w-5 text-gray-400 dark:text-gray-500" />
       </div>
-      
-      <div className="space-y-4">
+
+      <div className="space-y-3">
         {mockActivities.map((activity) => {
           const Icon = activityIcons[activity.type];
           const colorClass = activityColors[activity.type];
-          
+
           return (
-            <div key={activity.id} className="flex items-start space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200">
+            <div key={activity.id} className="flex items-start space-x-3 p-3 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
               <img
                 src={activity.user.avatar}
                 alt={activity.user.name}
@@ -47,7 +47,7 @@ export default function RecentActivity() {
                   <p className="text-sm font-medium text-gray-900 dark:text-white">
                     {activity.user.name}
                   </p>
-                  <div className={`p-1 rounded-full ${colorClass}`}>
+                  <div className={`p-1 rounded-full ${colorClass} dark:opacity-80`}>
                     <Icon className="h-3 w-3" />
                   </div>
                 </div>
@@ -62,12 +62,12 @@ export default function RecentActivity() {
           );
         })}
       </div>
-      
-      <button 
+
+      <button
         onClick={() => setShowAllActivities(true)}
-        className="w-full mt-4 text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors py-2"
+        className="w-full mt-4 text-sm text-orange-600 dark:text-orange-400 font-medium hover:text-orange-700 dark:hover:text-orange-300 transition-colors py-2"
       >
-        View all activity →
+        Voir toutes les activités →
       </button>
     </div>
     

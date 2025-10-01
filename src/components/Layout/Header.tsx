@@ -30,9 +30,9 @@ export default function Header() {
 
   return (
     <>
-    <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-100 dark:border-gray-800 px-4 md:px-6 py-4 fixed top-0 right-0 md:left-64 left-0 z-20">
+    <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-100 dark:border-gray-800 px-4 md:px-6 py-4 fixed top-0 right-0 md:left-64 left-0 z-10">
       <div className="flex items-center justify-between">
-        <div className="flex-1 max-w-md hidden md:block ml-12 md:ml-0">
+        <div className="flex-1 max-w-md hidden md:block">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 h-4 w-4" />
             <input

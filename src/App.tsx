@@ -53,21 +53,29 @@ function App() {
       />
       
       {/* Sidebar */}
-      <div className={`fixed left-0 top-0 z-30 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
-        <Sidebar 
-          activeSection={activeSection} 
+      <div className={`fixed left-0 top-0 h-full z-30 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+        <Sidebar
+          activeSection={activeSection}
           onSectionChange={(section) => {
             setActiveSection(section);
             setIsMobileMenuOpen(false);
-          }} 
+          }}
         />
       </div>
+
+      {/* Mobile overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
 
       {/* Header */}
       <Header />
 
       {/* Main Content */}
-      <main className="main-content p-4 md:p-6">
+      <main className="pt-20 md:pt-24 px-4 md:px-6 pb-6 md:ml-64">
         {renderContent()}
       </main>
     </div>
